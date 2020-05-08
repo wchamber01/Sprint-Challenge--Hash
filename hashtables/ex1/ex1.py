@@ -1,28 +1,16 @@
 def get_indices_of_item_weights(weights, length, limit):
-
-    # hash weights first
-    # for loop to subtract
-    # if answer exists add to tuple
-    # limit - weight
-
     cache = {}
+    # hash weights first for easy lookup
+    # enumerate to pass index as value
+    # for loop for difference
+    # limit - place in the loop, look to see if that exists in the hash table and return that index
 
-    for index, w in enumerate(weights):
-        cache[w] = index
-        print(cache)
-    for i in weights:
-        target = limit - i
-        print(target)
-        if target in cache:
-            if cache[target] > cache[i]:
-                return (cache[target])
-        cache[w] = index
-
-        for key, value in cache.items():
-            if key == target:
-                return (cache[w], value)
-
-    return None
+    # for index, v in enumerate(weights):
+    #     for i in weights:
+    #         target = limit - i
+    #         if target in cache:
+    #             if cache[target]
+    # return None
 
 
 weights_3 = [4, 6, 10, 15, 16]
