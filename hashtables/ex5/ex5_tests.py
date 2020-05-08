@@ -38,6 +38,7 @@ class TestEx2(unittest.TestCase):
 
         for i in range(1000000):
             queries.append(f"nofile{i}")
+            print(i)
 
         queries += [
             "file3490",
@@ -50,9 +51,10 @@ class TestEx2(unittest.TestCase):
         result.sort()
 
         self.assertTrue(result == ['/dir256/dirb256/file256',
-            '/dir256/file256', '/dir3490/dirb3490/file3490',
-            '/dir3490/file3490', '/dir8192/dirb8192/file8192',
-            '/dir8192/file8192'])
+                                   '/dir256/file256', '/dir3490/dirb3490/file3490',
+                                   '/dir3490/file3490', '/dir8192/dirb8192/file8192',
+                                   '/dir8192/file8192'])
+
 
 if __name__ == '__main__':
     unittest.main()
