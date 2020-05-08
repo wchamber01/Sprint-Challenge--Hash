@@ -6,15 +6,29 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-
+    # initialize cache and flights list
     cache = {}
-    route = []
-    for i in tickets:
-        cache[i.source] = i.destination
-        # print(cache)
-    current_value = cache['NONE']
-    while len(route) < length:
-        route.append(current_value)
-        current_value = cache[current_value]
+    flights = list()
 
-    return route
+    # Loop through tickets list and create cache
+    for item in tickets:
+        #       key             value
+        cache[item.source] = item.destination
+
+    # Set starting point to cache key None (first location)
+    origination = cache['NONE']
+    # print('origination:', origination)
+    # print('cache:', cache)
+
+    # Loop through tickets while the length of route is less than the number of tickets
+    while len(flights) < length:
+
+        # Add the originating point to the route list
+        flights.append(origination)
+        # print('flights:', flights)
+        # print('origination:', origination)
+
+        # Make the new origination the originating point's value i.e: destination
+        origination = cache[origination]
+
+    return flights
