@@ -11,12 +11,17 @@ def finder(files, queries):
     # loop through files
     for q_str in queries:
         for path in files:
-            if q_str in path:
-                cache[q_str] = path
-    print(cache)
     for q in queries:
+        if 'nofile' in q:
+            continue
         if q in cache:
-            result.append(cache[q])
+            if len(cache[q]) > 1:
+                for i in q:
+                    result.append(cache[q][i])
+            else:
+                result.append(cache[q])
+        else:
+            continue
 
     return result
 
